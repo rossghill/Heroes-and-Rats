@@ -45,8 +45,8 @@ it('hero should have a collection of tasks --empty', function() {
 });
 
 it('hero should have a collection of tasks', function() {
-  hero1.addTaskToList(task1)
-  hero1.addTaskToList(task2)
+  hero1.addTaskToList(task1);
+  hero1.addTaskToList(task2);
   const actual = hero1.tasklist.length;
   assert.deepStrictEqual(actual, 2);
 });
@@ -71,12 +71,17 @@ it('task should have reward', function() {
   assert.strictEqual(actual, "booster parts");
 });
 
+it('task is not completed', function() {
+  const actual = task1.completed;
+  assert.strictEqual(actual, false);
+})
+
 xit('task can be marked as completed', function() {
-  const actual = "";
-  assert.strictEqual(actual, "");
+  hero1.addTaskToList(task1);
+  hero1.completeTask(task1);
+  const actual = task1.completed;
+  assert.strictEqual(actual, true);
 });
-
-
 
 
 })
