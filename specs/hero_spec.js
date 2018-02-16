@@ -38,9 +38,9 @@ it('hero can talk', function() {
   assert.strictEqual(actual, "My name's Slippy!");
 });
 
-xit('hero should have a collection of tasks --empty', function() {
+it('hero should have a collection of tasks --empty', function() {
   const actual = hero1.tasks;
-  assert.strictEqual(actual, []);
+  assert.deepEqual(actual, []);
 });
 
 xit('hero should have a collection of tasks', function() {
@@ -51,12 +51,29 @@ xit('hero should have a collection of tasks', function() {
 it('task should have description', function() {
   const actual = task1.description;
   assert.strictEqual(actual, "Counter attack Venom");
-})
+});
 
 it('task should have difficulty level', function() {
   const actual = task1.difficulty_level;
   assert.strictEqual(actual, 1);
-})
+});
+
+xit('task should have urgency level', function() {
+  const actual = task1.urgency_level;
+  assert.strictEqual(actual, 2);
+});
+
+xit('task should have reward', function() {
+  const actual = task1.reward;
+  assert.strictEqual(actual, "");
+});
+
+xit('task can be marked as completed', function() {
+  const actual = "";
+  assert.strictEqual(actual, "");
+});
+
+
 
 
 })
