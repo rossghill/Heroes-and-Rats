@@ -16,6 +16,7 @@ beforeEach(function() {
   hero3 = new Hero("Peppy", 320, "carrots");
   hero4 = new Hero("Slippy", 360, "flies");
   task1 = new Task("Counter attack Venom", 1);
+  task2 = new Task("Destroy the rock crusher", 2);
 })
 
 it('hero should have name', function() {
@@ -39,13 +40,15 @@ it('hero can talk', function() {
 });
 
 it('hero should have a collection of tasks --empty', function() {
-  const actual = hero1.tasks;
+  const actual = hero1.tasklist;
   assert.deepEqual(actual, []);
 });
 
-xit('hero should have a collection of tasks', function() {
-  const actual = hero1.tasks;
-  assert.strictEqual(actual, "berries");
+it('hero should have a collection of tasks', function() {
+  hero1.addTaskToList(task1)
+  hero1.addTaskToList(task2)
+  const actual = hero1.tasklist.length;
+  assert.deepStrictEqual(actual, 2);
 });
 
 it('task should have description', function() {
