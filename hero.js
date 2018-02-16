@@ -13,8 +13,8 @@ Hero.prototype.addTaskToList = function(task) {
   this.tasklist.push(task);
 }
 
-Hero.prototype.completeTask = function(task) {
-  task[completed] === true;
+Hero.prototype.completeTask = function() {
+  this.tasklist[0].completed = true;
 }
 
 module.exports = Hero;

@@ -76,10 +76,14 @@ it('task is not completed', function() {
   assert.strictEqual(actual, false);
 })
 
-xit('task can be marked as completed', function() {
+it('task can be marked as completed', function() {
   hero1.addTaskToList(task1);
   hero1.completeTask(task1);
-  const actual = task1.completed;
+  // console.log(hero1.tasklist);
+  // console.log(hero1.tasklist[0]);
+  // console.log(hero1.tasklist[0].completed);
+  const actual = hero1.tasklist[0].completed;
+  // const actual = task1.completed;
   assert.strictEqual(actual, true);
 });
 
