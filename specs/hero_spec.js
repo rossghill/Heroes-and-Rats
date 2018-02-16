@@ -106,6 +106,12 @@ it('hero can eat food, gain health', function() {
   hero3.eatFood(food1);
   const actual = hero3.health;
   assert.strictEqual(actual, 370);
+});
+
+it('hero gains additional health from eating fav food', function() {
+  hero1.eatFood(food2);
+  const actual = hero1.health;
+  assert.strictEqual(actual, 520);
 })
 
 

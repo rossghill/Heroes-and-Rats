@@ -18,7 +18,12 @@ Hero.prototype.completeTask = function() {
 }
 
 Hero.prototype.eatFood = function(food_item) {
-  this.health += food_item.replenishment_value;
+  if (this.fav_food === food_item.name) {
+    this.health += (food_item.replenishment_value * 2);
+  }
+  else {
+    this.health += food_item.replenishment_value;
+  }
 }
 
 module.exports = Hero;
