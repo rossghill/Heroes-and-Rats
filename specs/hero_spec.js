@@ -15,8 +15,8 @@ beforeEach(function() {
   hero2 = new Hero("Falco", 480, "worms");
   hero3 = new Hero("Peppy", 320, "carrots");
   hero4 = new Hero("Slippy", 360, "flies");
-  task1 = new Task("Counter attack Venom", 1);
-  task2 = new Task("Destroy the rock crusher", 2);
+  task1 = new Task("Counter attack Venom", 1, 5);
+  task2 = new Task("Destroy the rock crusher", 2, 8);
 })
 
 it('hero should have name', function() {
@@ -61,9 +61,9 @@ it('task should have difficulty level', function() {
   assert.strictEqual(actual, 1);
 });
 
-xit('task should have urgency level', function() {
-  const actual = task1.urgency_level;
-  assert.strictEqual(actual, 2);
+it('task should have urgency level', function() {
+  const actual = task2.urgency_level;
+  assert.strictEqual(actual, 8);
 });
 
 xit('task should have reward', function() {
