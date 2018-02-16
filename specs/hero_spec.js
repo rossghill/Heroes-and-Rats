@@ -20,7 +20,7 @@ it('hero should have name', function() {
   assert.strictEqual(actual, "Fox");
 });
 
-xit('hero should have health', function() {
+it('hero should have health', function() {
   const actual = hero1.health;
   assert.strictEqual(actual, 450);
 });
