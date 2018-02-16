@@ -15,7 +15,7 @@ beforeEach(function() {
   hero2 = new Hero("Falco", 480, "worms");
   hero3 = new Hero("Peppy", 320, "carrots");
   hero4 = new Hero("Slippy", 360, "flies");
-  task1 = new Task("Counter attack Venom")
+  task1 = new Task("Counter attack Venom", 1);
 })
 
 it('hero should have name', function() {
@@ -51,6 +51,11 @@ xit('hero should have a collection of tasks', function() {
 it('task should have description', function() {
   const actual = task1.description;
   assert.strictEqual(actual, "Counter attack Venom");
+})
+
+it('task should have difficulty level', function() {
+  const actual = task1.difficulty_level;
+  assert.strictEqual(actual, 1);
 })
 
 
