@@ -15,6 +15,11 @@ beforeEach(function() {
   hero4 = new Hero("Slippy");
 })
 
+it('hero should have name', function() {
+  const actual = hero1.name;
+  assert.strictEqual(actual, "Fox");
+});
+
 
 
 })
