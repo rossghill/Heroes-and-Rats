@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Hero = require('../hero');
+const Task = require('../task');
 
 describe('Hero', function() {
 
@@ -7,12 +8,14 @@ let hero1;
 let hero2;
 let hero3;
 let hero4;
+let task1;
 
 beforeEach(function() {
   hero1 = new Hero("Fox", 450, "berries");
   hero2 = new Hero("Falco", 480, "worms");
   hero3 = new Hero("Peppy", 320, "carrots");
   hero4 = new Hero("Slippy", 360, "flies");
+  task1 = new Task("Counter attack Venom")
 })
 
 it('hero should have name', function() {
@@ -44,6 +47,11 @@ xit('hero should have a collection of tasks', function() {
   const actual = hero1.tasks;
   assert.strictEqual(actual, "berries");
 });
+
+it('task should have description', function() {
+  const actual = task1.description;
+  assert.strictEqual(actual, "Counter attack Venom");
+})
 
 
 })
