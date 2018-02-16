@@ -102,5 +102,11 @@ it('food should have replenishment_value', function() {
   assert.strictEqual(food2.replenishment_value, 35);
 });
 
+it('hero can eat food, gain health', function() {
+  hero3.eatFood(food1);
+  const actual = hero3.health;
+  assert.strictEqual(actual, 370);
+})
+
 
 })

@@ -17,4 +17,8 @@ Hero.prototype.completeTask = function() {
   this.tasklist[0].completed = true;
 }
 
+Hero.prototype.eatFood = function(food_item) {
+  this.health += food_item.replenishment_value;
+}
+
 module.exports = Hero;
