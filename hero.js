@@ -57,11 +57,14 @@ Hero.prototype.returnCompleteTasks = function() {
 // }
 
 Hero.prototype.eatFood = function(food_item) {
-  if (this.fav_food === food_item.name) {
+  if (this.fav_food === food_item.name && food_item.poisoned !== true) {
     this.health += (food_item.replenishment_value * 2);
   }
-  else {
+  else if (food_item.poisoned !== true) {
     this.health += food_item.replenishment_value;
+  }
+  else {
+    this.health -= 50;
   }
 }
 

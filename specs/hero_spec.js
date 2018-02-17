@@ -158,6 +158,12 @@ it('rat can be poison food', function() {
   assert.strictEqual(actual, true);
 });
 
+it('eating poisoned food removes health', function() {
+  rat.touchFood(food3);
+  hero2.eatFood(food3);
+  const actual = hero2.health;
+  assert.strictEqual(actual, 430);
+});
 
 
 })
