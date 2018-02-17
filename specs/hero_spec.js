@@ -2,6 +2,7 @@ const assert = require('assert');
 const Hero = require('../hero');
 const Task = require('../task');
 const Food = require('../food');
+const Rat = require('../rat');
 
 describe('Hero', function() {
 
@@ -15,6 +16,7 @@ let task3;
 let food1;
 let food2;
 let food3;
+let rat;
 
 beforeEach(function() {
   hero1 = new Hero("Fox", 450, "berries");
@@ -24,9 +26,10 @@ beforeEach(function() {
   task1 = new Task("Counter attack Venom", 1, 5, "booster parts");
   task2 = new Task("Destroy the rock crusher", 2, 8, "shield upgrade");
   task3 = new Task("Eliminate Andross", 10, 15, "hero status");
-  food1 = new Food("meat", 50);
-  food2 = new Food("berries", 35);
-  food3 = new Food("worms", 20);
+  food1 = new Food("meat", 50, false);
+  food2 = new Food("berries", 35, false);
+  food3 = new Food("worms", 20, false);
+  rat = new Rat;
 })
 
 it('hero should have name', function() {
@@ -143,6 +146,16 @@ it('hero can view complete tasks', function() {
   hero2.completeTask("Counter attack Venom");
   const actual = hero2.returnCompleteTasks();
   assert.deepStrictEqual(actual, ["Counter attack Venom"]);
+});
+
+it('food starts unpoisoned', function() {
+  assert.strictEqual(food1.poisoned, false);
+});
+
+it('rat can be poison food', function() {
+  rat.touchFood(food1);
+  const actual = food1.poisoned;
+  assert.strictEqual(actual, true);
 });
 
 
