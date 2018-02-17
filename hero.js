@@ -13,8 +13,13 @@ Hero.prototype.addTaskToList = function(task) {
   this.tasklist.push(task);
 }
 
-Hero.prototype.completeTask = function() {
-  this.tasklist[0].completed = true;
+Hero.prototype.completeTask = function(task_description) {
+  // this.tasklist[0].completed = true;
+  for (task of this.tasklist) {
+    if (task.description === task_description) {
+      task.completed = true;
+    }
+  }
 }
 
 Hero.prototype.eatFood = function(food_item) {
@@ -24,6 +29,10 @@ Hero.prototype.eatFood = function(food_item) {
   else {
     this.health += food_item.replenishment_value;
   }
+}
+
+Hero.prototype.sortByTasksByDifficulty = function() {
+  this.tasklist
 }
 
 module.exports = Hero;

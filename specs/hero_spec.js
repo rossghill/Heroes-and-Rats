@@ -94,6 +94,12 @@ it('task can be marked as completed', function() {
   assert.strictEqual(actual, true);
 });
 
+it('can mark multiple tasks as completed', function() {
+  hero2.addTaskToList(task1);
+  hero2.addTaskToList(task2);
+  console.log(hero2.tasklist[0]);
+})
+
 it('food should have name', function() {
   assert.strictEqual(food1.name, "meat");
 });
@@ -112,7 +118,28 @@ it('hero gains additional health from eating fav food', function() {
   hero1.eatFood(food2);
   const actual = hero1.health;
   assert.strictEqual(actual, 520);
-})
+});
+
+xit('hero can sort tasks by difficulty', function() {
+
+});
+
+xit('hero can sort tasks by urgency', function() {
+
+});
+
+xit('hero can sort tasks by reward', function() {
+
+});
+
+xit('hero can view incomplete tasks', function() {
+
+});
+
+xit('hero can view complete tasks', function() {
+
+});
+
 
 
 })
