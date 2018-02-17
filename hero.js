@@ -13,6 +13,14 @@ Hero.prototype.addTaskToList = function(task) {
   this.tasklist.push(task);
 }
 
+Hero.prototype.getTaskByDescription = function(task_description) {
+  for (task of this.tasklist) {
+    if (task.description === task_description) {
+      return task;
+    }
+  }
+}
+
 Hero.prototype.completeTask = function(task_description) {
   // this.tasklist[0].completed = true;
   for (task of this.tasklist) {

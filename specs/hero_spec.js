@@ -85,7 +85,9 @@ it('task is not completed', function() {
 
 it('task can be marked as completed', function() {
   hero1.addTaskToList(task1);
-  hero1.completeTask(task1);
+  console.log(hero1.tasklist);
+  hero1.completeTask("Counter attack Venom");
+  console.log(hero1.tasklist);
   // console.log(hero1.tasklist);
   // console.log(hero1.tasklist[0]);
   // console.log(hero1.tasklist[0].completed);
@@ -94,11 +96,6 @@ it('task can be marked as completed', function() {
   assert.strictEqual(actual, true);
 });
 
-it('can mark multiple tasks as completed', function() {
-  hero2.addTaskToList(task1);
-  hero2.addTaskToList(task2);
-  console.log(hero2.tasklist[0]);
-})
 
 it('food should have name', function() {
   assert.strictEqual(food1.name, "meat");
