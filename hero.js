@@ -22,13 +22,39 @@ Hero.prototype.getTaskByDescription = function(task_description) {
 }
 
 Hero.prototype.completeTask = function(task_description) {
-  // this.tasklist[0].completed = true;
   for (task of this.tasklist) {
     if (task.description === task_description) {
       task.completed = true;
     }
   }
 }
+
+Hero.prototype.returnIncompleteTasks = function() {
+  incomplete_tasks = [];
+  for (task of this.tasklist) {
+    if (task.completed === false) {
+      incomplete_tasks.push(task.description);
+    }
+  }
+  return incomplete_tasks;
+}
+
+Hero.prototype.returnCompleteTasks = function() {
+  complete_tasks = [];
+  for (task of this.tasklist) {
+    if (task.completed === true) {
+      complete_tasks.push(task.description);
+    }
+  }
+  return complete_tasks;
+}
+
+// Hero.prototype.returnTasks = function(request) {
+//   tasks = [];
+//   if (request === "completed") {
+//
+//   }
+// }
 
 Hero.prototype.eatFood = function(food_item) {
   if (this.fav_food === food_item.name) {

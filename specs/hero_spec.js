@@ -10,6 +10,8 @@ let hero2;
 let hero3;
 let hero4;
 let task1;
+let task2;
+let task3;
 let food1;
 let food2;
 let food3;
@@ -21,6 +23,7 @@ beforeEach(function() {
   hero4 = new Hero("Slippy", 360, "flies");
   task1 = new Task("Counter attack Venom", 1, 5, "booster parts");
   task2 = new Task("Destroy the rock crusher", 2, 8, "shield upgrade");
+  task3 = new Task("Eliminate Andross", 10, 15, "hero status");
   food1 = new Food("meat", 50);
   food2 = new Food("berries", 35);
   food3 = new Food("worms", 20);
@@ -78,21 +81,18 @@ it('task should have reward', function() {
   assert.strictEqual(actual, "booster parts");
 });
 
-it('task is not completed', function() {
+it('task completed starts as false', function() {
   const actual = task1.completed;
   assert.strictEqual(actual, false);
 })
 
 it('task can be marked as completed', function() {
+  hero1.addTaskToList(task2);
   hero1.addTaskToList(task1);
-  console.log(hero1.tasklist);
+  // console.log(hero1.tasklist);  --Check task has been added
   hero1.completeTask("Counter attack Venom");
-  console.log(hero1.tasklist);
-  // console.log(hero1.tasklist);
-  // console.log(hero1.tasklist[0]);
-  // console.log(hero1.tasklist[0].completed);
-  const actual = hero1.tasklist[0].completed;
-  // const actual = task1.completed;
+  // console.log(hero1.tasklist);  --Check task completed has changed
+  const actual = hero1.getTaskByDescription("Counter attack Venom").completed;
   assert.strictEqual(actual, true);
 });
 
@@ -129,12 +129,20 @@ xit('hero can sort tasks by reward', function() {
 
 });
 
-xit('hero can view incomplete tasks', function() {
-
+it('hero can view incomplete tasks', function() {
+  hero4.addTaskToList(task1);
+  hero4.addTaskToList(task2);
+  hero4.addTaskToList(task3);
+  const actual = hero4.returnIncompleteTasks();
+  assert.deepStrictEqual(actual, ["Counter attack Venom", "Destroy the rock crusher", "Eliminate Andross"]);
 });
 
-xit('hero can view complete tasks', function() {
-
+it('hero can view complete tasks', function() {
+  hero2.addTaskToList(task1);
+  hero2.addTaskToList(task2);
+  hero2.completeTask("Counter attack Venom");
+  const actual = hero2.returnCompleteTasks();
+  assert.deepStrictEqual(actual, ["Counter attack Venom"]);
 });
 
 
