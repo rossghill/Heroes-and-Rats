@@ -22,15 +22,17 @@ Hero.prototype.getTaskByDescription = function(task_description) {
 }
 
 Hero.prototype.completeTask = function(task_description) {
-  for (task of this.tasklist) {
-    if (task.description === task_description) {
-      task.completed = true;
-    }
-  }
+   let task = this.getTaskByDescription(task_description);
+  // for (task of this.tasklist) {
+  //   if (task.description === task_description) {
+  //     task.completed = true;
+  //   }
+  // }
+  task.completed = true;
 }
 
 Hero.prototype.returnIncompleteTasks = function() {
-  incomplete_tasks = [];
+  let incomplete_tasks = [];
   for (task of this.tasklist) {
     if (task.completed === false) {
       incomplete_tasks.push(task.description);
@@ -40,7 +42,7 @@ Hero.prototype.returnIncompleteTasks = function() {
 }
 
 Hero.prototype.returnCompleteTasks = function() {
-  complete_tasks = [];
+  let complete_tasks = [];
   for (task of this.tasklist) {
     if (task.completed === true) {
       complete_tasks.push(task.description);
@@ -48,13 +50,6 @@ Hero.prototype.returnCompleteTasks = function() {
   }
   return complete_tasks;
 }
-
-// Hero.prototype.returnTasks = function(request) {
-//   tasks = [];
-//   if (request === "completed") {
-//
-//   }
-// }
 
 Hero.prototype.eatFood = function(food_item) {
   if (this.fav_food === food_item.name && food_item.poisoned !== true) {
@@ -69,7 +64,11 @@ Hero.prototype.eatFood = function(food_item) {
 }
 
 Hero.prototype.sortByTasksByDifficulty = function() {
-  this.tasklist
-}
+  this.tasklist.sort(function (a, b) {
+    return a.difficulty_level - b.difficulty_level;
+  });
+
+};
+
 
 module.exports = Hero;

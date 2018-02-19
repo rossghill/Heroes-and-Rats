@@ -94,11 +94,10 @@ it('task can be marked as completed', function() {
   hero1.addTaskToList(task1);
   // console.log(hero1.tasklist);  --Check task has been added
   hero1.completeTask("Counter attack Venom");
-  // console.log(hero1.tasklist);  --Check task completed has changed
+  // console.log(hero1.tasklist);  --Check task has changed to completed
   const actual = hero1.getTaskByDescription("Counter attack Venom").completed;
   assert.strictEqual(actual, true);
 });
-
 
 it('food should have name', function() {
   assert.strictEqual(food1.name, "meat");
@@ -121,14 +120,15 @@ it('hero gains additional health from eating fav food', function() {
 });
 
 xit('hero can sort tasks by difficulty', function() {
-
+  hero1.addTaskToList(task3);
+  hero1.addTaskToList(task2);
+  hero1.addTaskToList(task1);
+  console.log(hero1.sortByTasksByDifficulty());
+  const actual = hero1.sortByTasksByDifficulty();
+  assert.deepStrictEqual(actual, [1, 2, 10])
 });
 
 xit('hero can sort tasks by urgency', function() {
-
-});
-
-xit('hero can sort tasks by reward', function() {
 
 });
 
@@ -164,6 +164,5 @@ it('eating poisoned food removes health', function() {
   const actual = hero2.health;
   assert.strictEqual(actual, 430);
 });
-
 
 })
